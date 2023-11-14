@@ -1,5 +1,6 @@
 <?php
 
+//4.22
 $number = 35; 
 
 if ($number % 2 == 0) {
@@ -14,6 +15,62 @@ if ($number % 10 == 7) {
     echo "Число закінчується на 7";
 } else {
     echo "Число не закінчується на 7";
+}
+
+//4.23
+$number = 54; 
+
+$first = (int)($number / 10);
+$second = $number % 10; 
+
+if ($first > $second) {
+    echo "Перша цифра ($first) більша за другу ($second";
+} elseif ($first < $second) {
+    echo "Друга цифра ($second) більша за першу ($first)";
+} else {
+    echo "Обидві цифри ($first) і ($second) однакові";
+}
+
+//4.25
+$number = 14; 
+
+$first = (int)($number / 10); 
+$second = $number % 10;
+$sum = $first + $second; 
+
+if ($sum >= 10 && $sum <= 99) {
+    echo "Сума цифр є двозначним числом";
+} else {
+    echo "Сума цифр не є двозначним числом";
+}
+
+echo "<br>";
+
+if ($sum > 10) {
+    echo "Сума цифр більша за число 10";
+} else {
+    echo "Сума цифр не більша за число 10";
+}
+
+//4.26
+$number = 87;
+
+$first = (int)($number / 10);
+$second = $number % 10; 
+$sum = $first + $second;
+
+if ($sum % 3 == 0) {
+    echo "Сума цифр є кратною трьом";
+} else {
+    echo "Сума цифр не є кратною трьом";
+}
+
+echo "<br>";
+
+if ($sum % 10 == 0) {
+    echo "Сума цифр є кратною числу 10";
+} else {
+    echo "Сума цифр не є кратною числу 10";
 }
 
 ?>
