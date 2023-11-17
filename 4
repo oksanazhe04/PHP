@@ -1,0 +1,88 @@
+<?php
+  //1
+function invert(array $numbers): array {
+    $invertedNumbers = [];
+
+    foreach ($numbers as $number) {
+        $invertedNumbers[] = -$number;
+    }
+    return $invertedNumbers;
+}
+
+$input1 = [1, 2, 3, 4, 5];
+$result1 = invert($input1);
+print_r($result1); 
+
+$input2 = [1, -2, 3, -4, 5];
+$result2 = invert($input2);
+print_r($result2);
+
+$input3 = [];
+$result3 = invert($input3);
+print_r($result3); 
+
+//2
+function arrayToCSV(array $twoDimensionalArray): string {
+    $csvString = '';
+
+    foreach ($twoDimensionalArray as $row) {
+        $csvString .= implode(',', $row) . "\n";
+    }
+
+    return $csvString;
+}
+
+$inputArray = [
+    [0, 1, 2, 3, 4],
+    [10, 11, 12, 13, 14],
+    [20, 21, 22, 23, 24],
+    [30, 31, 32, 33, 34]
+];
+
+$resultCSV = arrayToCSV($inputArray);
+echo $resultCSV;
+
+//3
+function countPositivesSumNegatives($arr) {
+    if (empty($arr) || is_null($arr)) {
+        return [];
+    }
+
+    $countPositives = 0;
+    $sumNegatives = 0;
+
+    foreach ($arr as $num) {
+        if ($num > 0) {
+            $countPositives++;
+        } elseif ($num < 0) {
+            $sumNegatives += $num;
+        }
+    }
+
+    return [$countPositives, $sumNegatives];
+}
+
+$inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
+
+$result = countPositivesSumNegatives($inputArray);
+print_r($result);
+
+//4
+
+function calculateAverage($numbers) {
+    if (empty($numbers)) {
+        return 0;
+    }
+    
+    $sum = array_sum($numbers);
+    $count = count($numbers);
+    $average = $sum / $count;
+    return $average;
+}
+
+$inputArray = [15, 22, 35, 41, 50];
+
+$result = calculateAverage($inputArray);
+echo $result;
+
+?>
