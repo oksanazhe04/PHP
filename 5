@@ -19,11 +19,63 @@ echo $result2 . "\n";
 echo $result3 . "\n";
 
 //2
+function repeatString($n, $s) {
+    $resultString = str_repeat($s, $n);
+
+    return $resultString;
+}
+
+$n1 = 6;
+$s1 = "I";
+
+$n2 = 5;
+$s2 = "Hello";
+
+$result1 = repeatString($n1, $s1);
+$result2 = repeatString($n2, $s2);
+
+echo $result1 . "\n";
+echo $result2 . "\n";
 
 
 //3
+function greetName($name) {
+    $sayname = ucfirst(strtolower($name));
+
+    $greeting = "Hello " . $sayname . "!";
+
+    echo $greeting;
+}
+
+greetingName("riley");
+echo "\n";
+greetingName("JACK");
 
 //4
+function reverseWords($string) {
+    $wordsArray = explode(" ", $string);
+
+    $resultString = '';
+
+    foreach ($wordsArray as $word) {
+        $reversedWord = strrev($word);
+
+        $resultString .= $reversedWord . ' ';
+    }
+
+    $resultString = rtrim($resultString);
+
+    return $resultString;
+}
+
+$string1 = "This is an example!";
+$string2 = "double spaces";
+
+$result1 = reverseWords($string1);
+$result2 = reverseWords($string2);
+
+echo $result1 . "\n";
+echo $result2 . "\n";
 
 
 ?>
