@@ -1,0 +1,50 @@
+<?php
+
+$matrix = [];
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+        $matrix[$i][$j] = rand(0, 10);
+    }
+}
+array_multisort(array_column($matrix, 0), SORT_DESC, $matrix);
+
+sort($matrix[9]);
+
+$sumFirstRow = array_sum($matrix[0]);
+
+if ($sumFirstRow < 50) {
+    $productLastColumn = 1;
+    foreach ($matrix as $row) {
+        $productLastColumn *= $row[9];
+    }
+    echo "Добуток елементів останнього стовпця: $productLastColumn";
+} else {
+    $sumOddElements = 0;
+    foreach ($matrix as $row) {
+        foreach ($row as $element) {
+            if ($element % 2 != 0) {
+                $sumOddElements += $element;
+            }
+        }
+    }
+    echo "Сума непарних елементів: $sumOddElements";
+}
+
+$productAllElements = 1;
+foreach ($matrix as $row) {
+    foreach ($row as $element) {
+        $productAllElements *= $element;
+    }
+}
+echo "\nДобуток всіх елементів масиву: $productAllElements";
+
+foreach ($matrix as &$row) {
+    $row[1] = pow($row[1], 2) - $row[1];
+}
+
+echo "\nОновлений масив:\n";
+foreach ($matrix as $row) {
+    echo implode("\t", $row) . "\n";
+}
+
+?>
